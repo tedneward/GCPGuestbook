@@ -1,15 +1,22 @@
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.1">
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5"
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-    <display-name>Guestbook Application</display-name>
+  <!-- [START standard_mappings] -->
+  <servlet>
+    <servlet-name>sign</servlet-name>
+    <servlet-class>com.example.guestbook.SignGuestbookServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 
-    <servlet>
-        <servlet-name>GuestbookServlet</servlet-name>
-        <servlet-class>com.newardassociates.demo.GuestbookServlet</servlet-class>
-    </servlet>
+  <servlet-mapping>
+    <servlet-name>sign</servlet-name>
+    <url-pattern>/sign</url-pattern>
+  </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>GuestbookServlet</servlet-name>
-        <url-pattern>/*</url-pattern>
-    </servlet-mapping>
-
+  <welcome-file-list>
+    <welcome-file>guestbook.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- [END standard_mappings] -->
 </web-app>
